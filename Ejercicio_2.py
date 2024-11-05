@@ -3,7 +3,9 @@ from grafo import Graph
 # Crear el grafo no dirigido con personajes de Star Wars
 grafo = Graph(dirigido=False)
 
-# a) Insertar vertices con nombres de personajes
+# A)
+# Insertar vertices con nombres de personajes
+print("PUNTO A")
 personajes = [
     "Luke Skywalker", "Darth Vader", "Yoda", "Boba Fett", "C-3PO", "Leia",
     "Rey", "Kylo Ren", "Chewbacca", "Han Solo", "R2-D2", "BB-8"
@@ -28,23 +30,28 @@ grafo.insert_arista("R2-D2", "C-3PO", 7)
 grafo.insert_arista("Luke Skywalker", "Han Solo", 2)
 grafo.insert_arista("BB-8", "Rey", 2)
 
-# a) Mostrar el grafo completo para verificar su estructura
-print("Punto a) Grafo inicial con personajes de Star Wars:")
+# Mostrar el grafo completo para verificar su estructura
+print("Grafo inicial con personajes de Star Wars:")
 grafo.show_graph()
 
-# b) Hallar el arbol de expansion minimo y determinar si contiene a Yoda
+# B)
+# Hallar el arbol de expansion minimo y determinar si contiene a Yoda
+print()
+print("PUNTO B")
 arbol_minimo = grafo.kruskal("Luke Skywalker")
 
 # Verificar si el arbol de expansion minimo contiene a "Yoda"
 contiene_yoda = any("Yoda" in arbol for arbol in arbol_minimo)
-print()
 if contiene_yoda:
-    print("b) El arbol de expansion minimo SI contiene a Yoda")
+    print(" El arbol de expansion minimo SI contiene a Yoda")
 else:
-    print("b) El arbol de expansion minimo NO contiene a Yoda")
+    print(" El arbol de expansion minimo NO contiene a Yoda")
 print("Arbol de expansion minimo:", arbol_minimo)
 
-# c) Determinar el numero maximo de episodios que comparten dos personajes
+# C)
+# Determinar el numero maximo de episodios que comparten dos personajes
+print()
+print("PUNTO C")
 max_episodios = 0
 personajes_max_episodios = ("", "")
 
@@ -54,5 +61,5 @@ for nodo in grafo.elements:
             max_episodios = arista['peso']
             personajes_max_episodios = (nodo['value'], arista['value'])
 
-print()
-print(f"c) Los personajes que comparten el maximo de episodios son {personajes_max_episodios[0]} y {personajes_max_episodios[1]} con {max_episodios} episodios.")
+
+print(f" Los personajes que comparten el maximo de episodios son {personajes_max_episodios[0]} y {personajes_max_episodios[1]} con {max_episodios} episodios.")
